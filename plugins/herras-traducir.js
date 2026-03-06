@@ -1,9 +1,36 @@
 import translate from '@vitalets/google-translate-api'
+import fetch from 'node-fetch'
 
 var handler = async (m, { conn, usedPrefix, command, args }) => {
 try {
 let text = args.join(' ') || m.quoted?.text
 if (!text) return conn.reply(m.chat, '《✧》 Escribe o responde un texto para traducirlo.', m)
+
+const Shadow_url = await (await fetch("https://adofiles.i11.eu/dl/pna6.jpg")).buffer()
+
+const fkontak = {
+  key: {
+    fromMe: false,
+    participant: "0@s.whatsapp.net",
+    remoteJid: "status@broadcast"
+  },
+  message: {
+    productMessage: {
+      product: {
+        productImage: {
+          mimetype: "image/jpeg",
+          jpegThumbnail: Shadow_url
+        },
+        title: `⌗ֶㅤ𝐓𝐫𝐚𝐝𝐮𝐜𝐭𝐨𝐫 𝐝𝐞 𝐥𝐚 𝐒𝐨𝐦𝐛𝐫𝐚 ⚜`,
+        description: "« Las lenguas del mundo se inclinan ante la Sombra. »",
+        currencyCode: "USD",
+        priceAmount1000: 0,
+        retailerId: "traductor"
+      },
+      businessOwnerJid: "584242773183@s.whatsapp.net"
+    }
+  }
+}
 
 const buttons = [
   { buttonId: `${usedPrefix + command} en ${text}`, buttonText: { displayText: '🇺🇸 Inglés' }, type: 1 },
@@ -31,7 +58,7 @@ await conn.sendMessage(
     buttons,
     headerType: 1
   },
-  { quoted: m }
+  { quoted: fkontak }
 )
 
 } catch (e) {
