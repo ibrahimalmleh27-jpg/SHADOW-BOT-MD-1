@@ -4,9 +4,9 @@ import fs from 'fs'
 import PhoneNumber from 'awesome-phonenumber'
 import moment from 'moment-timezone'
 
-const botname = global.botname || "ShadowBot"
-const dev = global.dev || "AkiraDev"
-const banner = global.banner || "https://adofiles.i11.eu/dl/kmbh.jpg"
+const botname = global.botname || "Shadow Garden"
+const dev = global.dev || "Cid Kagenou"
+const banner = global.banner || "https://i.postimg.cc/rFfVL8Ps/image.jpg"
 const channelRD = global.channelRD || { id: "0@newsletter", name: "Shadow Channel" }
 
 let handler = async (m, { conn, usedPrefix, __dirname, participants }) => {
@@ -29,30 +29,30 @@ let handler = async (m, { conn, usedPrefix, __dirname, participants }) => {
 
     let userIdNum = m.sender.split('@')[0]
     let phone = PhoneNumber('+' + userIdNum)
-    let pais = phone.getRegionCode() || 'Desconocido 🌐'
+    let pais = phone.getRegionCode() || 'Dominio Desconocido 🌑'
 
     let tags = {
-      'info': '𝐈𝐍𝐅𝐎',
-      'main': '𝐒𝐓𝐀𝐓𝐔𝐒',
-      'anime': '𝐀𝐍𝐈𝐌𝐄',
-      'menu': '𝐌𝐄𝐍𝐔𝐒̌',
-      'search': '𝐁𝐔𝐒𝐐𝐔𝐄𝐃𝐀𝐒',
-      'descargas': '𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐒',
-      'socket': '𝐒𝐎𝐂𝐊𝐄𝐓𝐒',
-      'rg': '𝐏𝐄𝐑𝐅𝐈𝐋',
-      'fun': '𝐅𝐔𝐍',
-      'rpg': '𝙀𝘾𝙊𝙉𝙊𝙈𝙄𝘼',
-      'gacha': '𝐆𝐀𝐂𝐇𝐀',
-      'game': '𝐆𝐀𝐌𝐄',
-      'grupos': '𝐆𝐑𝐔𝐏𝐎',
-      'nable': '𝐎𝐍/𝐎𝐅𝐅',
-      'ia': '𝐈𝐀',
-      'stalk': '𝐒𝐓𝐀𝐋𝐊',
-      'maker': '𝐄𝐏𝐇𝐎𝐓𝐎',
-      'tools': '𝐔𝐓𝐈𝐋𝐒',
-      'sticker': '𝐒𝐓𝐈𝐂𝐊𝐄𝐑𝐒',
-      'owner': '𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑',
-      'nsfw': '𝐍𝐒𝐅𝐖 (+18)'
+      'info': '𝐈𝐍𝐅𝐎 𝐃𝐄 𝐋𝐀 𝐒𝐎𝐌𝐁𝐑𝐀',
+      'main': '𝐄𝐒𝐓𝐀𝐃𝐎 𝐃𝐄𝐋 𝐂𝐎𝐑𝐓𝐈𝐆𝐎',
+      'anime': '𝐀𝐍𝐈𝐌𝐄 𝐀𝐑𝐂𝐀𝐍𝐎',
+      'menu': '𝐌𝐄𝐍𝐔𝐒 𝐎𝐂𝐔𝐋𝐓𝐎𝐒',
+      'search': '𝐁𝐔𝐒𝐐𝐔𝐄𝐃𝐀𝐒 𝐄𝐒𝐎𝐓𝐄𝐑𝐈𝐂𝐀𝐒',
+      'descargas': '𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐒 𝐃𝐄 𝐋𝐀 𝐒𝐎𝐌𝐁𝐑𝐀',
+      'socket': '𝐂𝐎𝐍𝐄𝐗𝐈𝐎𝐍𝐄𝐒 𝐎𝐂𝐔𝐋𝐓𝐀𝐒',
+      'rg': '𝐏𝐄𝐑𝐅𝐈𝐋 𝐃𝐄𝐋 𝐂𝐎𝐍𝐓𝐑𝐀𝐓𝐈𝐒𝐓𝐀',
+      'fun': '𝐉𝐔𝐄𝐆𝐎𝐒 𝐃𝐄 𝐒𝐎𝐌𝐁𝐑𝐀',
+      'rpg': '𝐄𝐂𝐎𝐍𝐎𝐌𝐈𝐀 𝐎𝐂𝐔𝐋𝐓𝐀',
+      'gacha': '𝐈𝐕𝐄𝐍𝐓𝐎𝐒 𝐆𝐀𝐂𝐇𝐀',
+      'game': '𝐉𝐔𝐄𝐆𝐎𝐒 𝐀𝐑𝐂𝐀𝐍𝐎𝐒',
+      'grupos': '𝐂𝐈𝐑𝐂𝐔𝐋𝐎𝐒 𝐃𝐄 𝐒𝐎𝐌𝐁𝐑𝐀',
+      'nable': '𝐌𝐎𝐃𝐎 𝐎𝐍 / 𝐎𝐅𝐅',
+      'ia': '𝐈𝐍𝐓𝐄𝐋𝐈𝐆𝐄𝐍𝐂𝐈𝐀 𝐀𝐑𝐂𝐀𝐍𝐀',
+      'stalk': '𝐎𝐁𝐒𝐄𝐑𝐕𝐀𝐂𝐈𝐎𝐍 𝐒𝐈𝐋𝐄𝐍𝐂𝐈𝐎𝐒𝐀',
+      'maker': '𝐀𝐋𝐐𝐔𝐈𝐌𝐈𝐀 𝐕𝐈𝐒𝐔𝐀𝐋',
+      'tools': '𝐇𝐄𝐑𝐑𝐀𝐌𝐈𝐄𝐍𝐓𝐀𝐒 𝐃𝐄 𝐋𝐀 𝐒𝐎𝐌𝐁𝐑𝐀',
+      'sticker': '𝐒𝐄𝐋𝐋𝐎𝐒 𝐀𝐑𝐂𝐀𝐍𝐎𝐒',
+      'owner': '𝐌𝐀𝐄𝐒𝐓𝐑𝐎 𝐃𝐄 𝐋𝐀 𝐎𝐑𝐆𝐀𝐍𝐈𝐙𝐀𝐂𝐈𝐎𝐍',
+      'nsfw': '𝐙𝐎𝐍𝐀 𝐑𝐄𝐒𝐓𝐑𝐈𝐍𝐆𝐈𝐃𝐀 (+18)'
     }
 
     let commands = Object.values(global.plugins)
@@ -69,7 +69,7 @@ let handler = async (m, { conn, usedPrefix, __dirname, participants }) => {
         .map(cmd => cmd.help.map(e => `*│ׄꤥㅤׅ*  ${usedPrefix}${e}`).join('\n'))
         .join('\n')
       if (comandos) {
-        menuTexto += `\n*╭──･ ̸̷∵* \`${tags[tag]}\`  *݁ 🍃՞*
+        menuTexto += `\n*╭──･ ̸̷∵* \`${tags[tag]}\`  *݁ ⚜︎*
 ${comandos}
 *╰─────────────֙╯*\n`
       }
@@ -77,20 +77,21 @@ ${comandos}
 
     let date = `${dia}, ${fechaTxt}, ${hora}`
     let infoUser = `
-> . ݁  🌱՞ *¡ʜᴏʟᴀ!* ${ucapan()} ${name}, ᴀǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs. 𖠗𖠗
+> . ݁  🌑՞ *ʙɪᴇɴᴠᴇɴɪᴅᴏ ᴀ ʟᴀ ꜱᴏᴍʙʀᴀ,* ${name}.
+>    ʏᴀ ᴇꜱᴛᴀʙᴀ ᴇꜱᴄᴜᴄʀᴀɴᴅᴏ ᴛᴜꜱ ᴘᴀꜱᴏꜱ...
 
-> ﹙🪷̸ ﹚੭੭ ─ \`ɪ ɴ ғ ᴏ - ʙ ᴏ ᴛ\`  ﾟ⬭𑇛
-> ര ׄ 𓏸𓈒 ׅ *ʙᴏᴛ ɴᴀᴍᴇ ›* ${conn.user?.name || 'Bot'}
-> ര ׄ 𓏸𓈒 ׅ *ᴛɪᴘᴏ ›* ${(conn.user.jid == global.conn.user.jid ? 'Principal' : 'Sub-Bot')}
-> ര ׄ 𓏸𓈒 ׅ *ᴄᴏᴍᴀɴᴅᴏs ›* ${totalCommands}
-> ര ׄ 𓏸𓈒 ׅ *ᴀᴄᴛɪᴠᴏ ›* ${uptime}
-> ര ׄ 𓏸𓈒 ׅ *ᴘᴀɪs ›* ${pais}
-> ര ׄ 𓏸𓈒 ׅ *ᴜsᴜᴀʀɪᴏs ʀᴇɢ ›* ${totalreg}
-> ര ׄ 𓏸𓈒 ׅ *ɢʀᴜᴘᴏs ›* ${groupsCount}
-> ര ׄ 𓏸𓈒 ׅ *ᴅᴀᴛᴇ/ᴛɪᴍᴇ ›* ${date}
+> ﹙⚜︎﹚੭੭ ─ \`ɪ ɴ ғ ᴏ - ꜱʜᴀᴅᴏᴡ ʙᴏᴛ\`  ﾟ⬭𑇛
+> ര ׄ 𓏸𓈒 ׅ *ɴᴏᴍʙʀᴇ ᴄʟᴀᴠᴇ ›* ${conn.user?.name || 'Shadow Unit'}
+> ര ׄ 𓏸𓈒 ׅ *ᴄʟᴀꜱɪꜰɪᴄᴀᴄɪᴏɴ ›* ${(conn.user.jid == global.conn.user.jid ? '𝐍𝐮́𝐜𝐥𝐞𝐨 𝐏𝐫𝐢𝐧𝐜𝐢𝐩𝐚𝐥' : '𝐔𝐧𝐢𝐝𝐚𝐝 𝐒𝐮𝐛𝐨𝐫𝐝𝐢𝐧𝐚𝐝𝐚')}
+> ര ׄ 𓏸𓈒 ׅ *ᴄᴏᴍᴀɴᴅᴏꜱ ᴅɪꜱᴘᴏɴɪʙʟᴇꜱ ›* ${totalCommands}
+> ര ׄ 𓏸𓈒 ׅ *ᴛɪᴇᴍᴘᴏ ᴇɴ ʟᴀ ꜱᴏᴍʙʀᴀ ›* ${uptime}
+> ര ׄ 𓏸𓈒 ׅ *ᴅᴏᴍɪɴɪᴏ ᴅᴇ ᴏʀɪɢᴇɴ ›* ${pais}
+> ര ׄ 𓏸𓈒 ׅ *ᴀʟᴍᴀꜱ ʀᴇɢɪꜱᴛʀᴀᴅᴀꜱ ›* ${totalreg}
+> ര ׄ 𓏸𓈒 ׅ *ᴄᴇʟᴅᴀꜱ ᴀᴄᴛɪᴠᴀꜱ ›* ${groupsCount}
+> ര ׄ 𓏸𓈒 ׅ *ʀᴇɢɪꜱᴛʀᴏ ᴛᴇᴍᴘᴏʀᴀʟ ›* ${date}
 
 ${readMore}
-  乂 *ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs* 乂\n`.trim()
+  乂 *ᴘʀᴏᴛᴏᴄᴏʟᴏ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏꜱ ᴅᴇ ʟᴀ ꜱᴏᴍʙʀᴀ* 乂\n`.trim()
 
 
    const icon = [
@@ -113,8 +114,8 @@ ${readMore}
             mimetype: "image/jpeg",
             jpegThumbnail: Shadow_url
           },
-          title: `⌗ֶㅤ𝐌𝐞𝐧𝐮 - ${botname} 𝅄🥢`,
-          description: "",
+          title: `⌗ֶㅤ𝐌𝐞𝐧𝐮 𝐝𝐞 𝐥𝐚 𝐒𝐨𝐦𝐛𝐫𝐚 - ${botname} 𝅄⚜︎`,
+          description: "« Soy quien actúa en las sombras, fingiendo ser un simple extra. »",
           currencyCode: "USD",
           priceAmount1000: 10000,
           retailerId: "menu"
@@ -124,7 +125,7 @@ ${readMore}
     }
   }
 
-await m.react('🫧')
+await m.react('⚜︎')
 await conn.sendMessage(m.chat, { 
 text: infoUser + menuTexto,
 contextInfo: {
@@ -135,8 +136,8 @@ contextInfo: {
    newsletterName: channelRD.name
  },
  externalAdReply: {
-   title: botname,
-   body: dev,
+   title: `${botname} ┊ Organización en las Sombras`,
+   body: `Dirigido por ${dev}, el que juega a ser un simple mob.`,
    mediaType: 1,
    mediaUrl: null,
    sourceUrl: null,
@@ -149,7 +150,7 @@ contextInfo: {
 } catch (e) {
    console.error(e)
    await conn.sendMessage(m.chat, { 
-     text: `✘ Error al enviar el menú: ${e.message}`,
+     text: `✘ Un fallo ha surgido entre las sombras: ${e.message}`,
      mentionedJid: [mentionedJid]
    })
  }
@@ -170,14 +171,14 @@ function clockString(ms) {
 
 function ucapan() {
   const time = moment.tz('America/Lima').format('HH')
-  let res = "🄱ᴜᴇɴᴀs ɴᴏᴄʜᴇs"
+  let res = "🄱ᴜᴇɴᴀs ɴᴏᴄʜᴇs ᴅᴇ ʟᴀ ꜱᴏᴍʙʀᴀ"
 
   if (time >= 5 && time < 12)
-    res = "🄱ᴜᴇɴᴏs ᴅɪᴀs"
+    res = "🄱ᴜᴇɴᴏꜱ ᴅɪᴀꜱ, ᴇxᴛʀᴀ ᴅᴇ ʟᴀ ʜɪꜱᴛᴏʀɪᴀ"
   else if (time >= 12 && time < 18)
-    res = "🄱ᴜᴇɴᴀs ᴛᴀʀᴅᴇs"
+    res = "🄱ᴜᴇɴᴀꜱ ᴛᴀʀᴅᴇꜱ, ᴀᴄᴛᴏʀ ᴅᴇ ꜱᴏᴍʙʀᴀ"
   else if (time >= 18)
-    res = "🄱ᴜᴇɴᴀs ɴᴏᴄʜᴇs"
+    res = "🄱ᴜᴇɴᴀꜱ ɴᴏᴄʜᴇꜱ, ʟᴀ ᴏʙꜱᴄᴜʀɪᴅᴀᴅ ᴛᴇ ᴄᴜʙʀᴇ"
 
   return res
       }
