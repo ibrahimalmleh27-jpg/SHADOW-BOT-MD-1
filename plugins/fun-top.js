@@ -26,7 +26,7 @@ function handler(m, { groupMetadata, command, conn, text, usedPrefix }) {
         topMessage += `\n${x} *${i + 1}. ${user(id)}*`
     })
 
-    topMessage += `\n\n🌙 Las sombras observan en silencio...`
+    topMessage += `\n\n🌙 Las sombras observan en silencio....`
 
     conn.sendMessage(m.chat, { text: topMessage, mentions: topUsers })
 }
