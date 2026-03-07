@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 const handler = async (m, { conn, text }) => {
   const user = global.db.data.users[m.sender]
 
-  user.afk = +new Date
+  user.afk = +new Date()
   user.afkReason = text || ''
 
   let thumb = null
@@ -32,7 +32,7 @@ const handler = async (m, { conn, text }) => {
           title: "WhatsApp Business • Estado",
           description: "Shadow team",
           currencyCode: "USD",
-          priceAmount1000: 0000,
+          priceAmount1000: 0, 
           retailerId: "ShadowCore",
           productImageCount: 1
         },
@@ -44,7 +44,10 @@ const handler = async (m, { conn, text }) => {
   await conn.sendMessage(
     m.chat,
     {
-      text: `🌌 *Discípulo de las Sombras* 🎄\nHas entrado en estado AFK.\n○ Motivo » *${text || 'sin especificar'}*`
+      text:
+        `🌌 *Discípulo de las Sombras*\n` +
+        `Has entrado en estado AFK.\n` +
+        `○ Motivo » *${text || 'sin especificar'}*`
     },
     { quoted: shadow_xyz }
   )
@@ -55,4 +58,3 @@ handler.tags = ['tools']
 handler.command = ['afk']
 
 export default handler
-    
